@@ -1,3 +1,3 @@
 # http_server
  
-# This is a http server written in C
+ This is a http server written in C
