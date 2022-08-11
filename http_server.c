@@ -1,23 +1,22 @@
-#include <arpa/inet.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <netdb.h>
+#include <netinet/in.h>
 #include <sys/select.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/time.h>
-#include <sys/types.h>
+#include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <signal.h>
 
-#define MYPORT 8080 /* server should bind to port 8080 */
-                    /* bind to IP address INADDR_ANY */
+#define MYPORT 8080 
 
 // Assumption: any http request/response header will not exceed 4096 bytes.
 #define MAX_BUFFER 4096
@@ -50,7 +49,7 @@
 #define FLAG_DONE "DONE"
 #define FLAG_NOT_FOUND "File Not Found"
 
-#define MAXPENDING 50 /* Maximum outstanding connection requests; listen() param */
+#define MAXPENDING 50 // Maximum request, pass to listen()
 
 #define DBADDR "127.0.0.1"
 #define DBPORT 53004
